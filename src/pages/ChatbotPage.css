@@ -9,3 +9,34 @@
   margin-bottom: var(--spacing-2);
 }
 
+.chatbot-results {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-4);
+}
+
+.report-actions {
+  display: flex;
+  justify-content: center;
+  padding: var(--spacing-4);
+  background-color: var(--bg-surface-primary);
+  border-radius: var(--border-radius-card);
+  border: 1px solid var(--border-subtle);
+}
+
+.report-button {
+  padding: var(--spacing-3) var(--spacing-6);
+  background-color: var(--brand-primary);
+  color: white;
+  border: none;
+  border-radius: var(--border-radius-button);
+  font-size: var(--font-size-body);
+  font-weight: var(--font-weight-medium);
+  cursor: pointer;
+  transition: background-color 0.2s ease-out;
+}
+
+.report-button:hover {
+  background-color: var(--brand-secondary);
+}
+

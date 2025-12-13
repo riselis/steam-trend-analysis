@@ -4,6 +4,7 @@ import RegisterPage from "./pages/RegisterPage";
 import ChatbotPage from "./pages/ChatbotPage";
 import TrendAnalysisPage from "./pages/TrendAnalysisPage";
 import DataAnalyticsPage from "./pages/DataAnalyticsPage";
+import FullReportPage from "./pages/FullReportPage";
 import DashboardLayout from "./components/layout/DashboardLayout";
 
 // Protected Route Component
@@ -58,6 +59,10 @@ export const router = createBrowserRouter([
       {
         path: "analytics",
         element: <DataAnalyticsPage />,
+      },
+      {
+        path: "analytics/full-report/:responseId",
+        element: <FullReportPage />,
       },
     ],
   },

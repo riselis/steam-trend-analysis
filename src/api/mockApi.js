@@ -78,6 +78,119 @@ export const fetchChatResponse = async (message) => {
   };
 };
 
+// Submit trend input (wizard form)
+export const submitTrendInput = async (formData) => {
+  await delay(1500);
+
+  // Generate a mock responseId
+  const responseId = Math.floor(Math.random() * 1000000) + 1000;
+
+  const chatResponse = `Thank you for submitting your project details. Based on your team composition of ${
+    formData.teamSize
+  } members, ${formData.gameDimension} ${
+    formData.gameEngine
+  } project targeting ${
+    formData.playerType
+  } players, I've analyzed your requirements and prepared a comprehensive report. Your project shows strong potential in the ${
+    formData.preferredGenres?.join(", ") || "selected"
+  } genre(s). The analysis is ready for review.`;
+
+  return {
+    success: true,
+    chatResponse,
+    responseId,
+  };
+};
+
+// Get full report
+export const getFullReport = async (responseId) => {
+  await delay(1000);
+
+  return {
+    success: true,
+    content: `# Full Analysis Report #${responseId}
+
+## Executive Summary
+This comprehensive analysis has been generated based on your project submission. The report includes detailed insights into market trends, competitive analysis, and recommendations tailored to your specific project requirements.
+
+## Market Analysis
+Based on current Steam trends and your project specifications, we've identified key market opportunities and potential challenges in your target genre and platform focus.
+
+## Recommendations
+1. Consider focusing on your primary objective while maintaining flexibility for pivots
+2. Leverage your team's previous experience in released genres
+3. Plan for community engagement through selected channels
+4. Monitor development timeline against target release window
+
+## Risk Assessment
+Your pivot readiness and release delay readiness scores have been factored into this analysis. Consider these factors when making critical project decisions.
+
+## Next Steps
+Review this report and use the action plan to guide your development process.`,
+  };
+};
+
+// Get genres
+export const getGenres = async () => {
+  await delay(500);
+
+  return {
+    success: true,
+    genres: [
+      "Action",
+      "Adventure",
+      "RPG",
+      "Strategy",
+      "Simulation",
+      "Puzzle",
+      "Platformer",
+      "Racing",
+      "Sports",
+      "Horror",
+      "Educational",
+      "Indie",
+      "Casual",
+      "Arcade",
+    ],
+  };
+};
+
+// Get action step plan
+export const getActionStepPlan = async (responseId) => {
+  await delay(1000);
+
+  return {
+    success: true,
+    plan: `# Action Step Plan for Report #${responseId}
+
+## Phase 1: Pre-Development (Weeks 1-2)
+- Finalize team roles and responsibilities
+- Set up development environment and tools
+- Create initial project timeline and milestones
+
+## Phase 2: Early Development (Weeks 3-8)
+- Begin core gameplay mechanics implementation
+- Establish art style and visual direction
+- Set up community channels (Discord, Twitter, Steam page)
+
+## Phase 3: Mid-Development (Weeks 9-20)
+- Implement core features based on technical scope
+- Begin playtesting and iteration cycles
+- Start building community presence
+
+## Phase 4: Pre-Release (Weeks 21-24)
+- Finalize all features and content
+- Conduct comprehensive testing
+- Prepare marketing materials and store pages
+- Plan release strategy
+
+## Phase 5: Launch & Post-Release
+- Execute launch plan
+- Monitor community feedback
+- Plan post-release updates based on player response`,
+  };
+};
+
 // Trend Analysis API
 export const fetchTrendData = async (filters) => {
   await delay(1000);
