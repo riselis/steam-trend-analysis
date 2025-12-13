@@ -1,0 +1,191 @@
+{
+    "meta": {
+      "name": "Dark Energy Ops Dashboard",
+      "style": "dark-enterprise-analytics",
+      "industry": ["energy", "solar", "infrastructure", "monitoring"],
+      "personality": ["calm", "precise", "reliable", "technical", "premium"],
+      "targetUsers": ["operators", "engineers", "managers"],
+      "designGoals": [
+        "High information density without visual stress",
+        "Immediate anomaly recognition",
+        "Trustworthy and professional look",
+        "Clear hierarchy for real-time monitoring"
+      ]
+    },
+  
+    "uxPrinciples": {
+      "primaryFocus": "situational-awareness",
+      "cognitiveLoad": "low",
+      "visualNoise": "minimal",
+      "scanPattern": "left-navigation -> main-visual -> right-alerts",
+      "feedbackSpeed": "instant",
+      "interactionPhilosophy": "observe-first-act-second",
+      "emptyStates": "informative-not-decorative"
+    },
+  
+    "colorSystem": {
+      "mode": "dark",
+      "background": {
+        "app": "#0B1020",
+        "surfacePrimary": "#0F1629",
+        "surfaceSecondary": "#131B34",
+        "surfaceElevated": "#18224A"
+      },
+      "text": {
+        "primary": "#E6E9F2",
+        "secondary": "#A3AED0",
+        "muted": "#6C78A0",
+        "disabled": "#4A547A"
+      },
+      "brand": {
+        "primary": "#5B7CFF",
+        "secondary": "#7AA2FF",
+        "accent": "#9BB4FF"
+      },
+      "status": {
+        "success": "#3DD598",
+        "warning": "#FFC542",
+        "error": "#FF6B6B",
+        "info": "#5B7CFF"
+      },
+      "dataViz": {
+        "normal": "#5B7CFF",
+        "highlight": "#7AA2FF",
+        "critical": "#FF6B6B",
+        "inactive": "#2A335A"
+      },
+      "borders": {
+        "subtle": "rgba(255,255,255,0.06)",
+        "strong": "rgba(255,255,255,0.12)"
+      }
+    },
+  
+    "typography": {
+      "fontFamily": "Inter",
+      "scale": {
+        "h1": { "size": 28, "weight": 600, "lineHeight": 1.3 },
+        "h2": { "size": 22, "weight": 600, "lineHeight": 1.35 },
+        "h3": { "size": 18, "weight": 600, "lineHeight": 1.4 },
+        "body": { "size": 14, "weight": 400, "lineHeight": 1.6 },
+        "caption": { "size": 12, "weight": 400, "lineHeight": 1.4 },
+        "label": { "size": 11, "weight": 500, "letterSpacing": 0.6 }
+      },
+      "numeric": {
+        "fontVariant": "tabular-nums",
+        "emphasis": "medium"
+      }
+    },
+  
+    "spacingSystem": {
+      "baseUnit": 8,
+      "scale": [4, 8, 12, 16, 24, 32, 48, 64],
+      "layoutPadding": 24,
+      "cardPadding": 20,
+      "sectionGap": 32
+    },
+  
+    "layout": {
+      "structure": "sidebar + main + contextPanel",
+      "sidebar": {
+        "width": 240,
+        "behavior": "persistent",
+        "visualWeight": "low",
+        "background": "surfacePrimary"
+      },
+      "mainArea": {
+        "grid": "12-column",
+        "contentDensity": "high",
+        "primaryVisual": "center"
+      },
+      "contextPanel": {
+        "position": "right",
+        "width": 320,
+        "purpose": "alerts-and-actions"
+      }
+    },
+  
+    "components": {
+      "navigation": {
+        "style": "icon + label",
+        "activeState": "left-accent-bar",
+        "hover": "soft-glow",
+        "iconColor": "text.secondary"
+      },
+  
+      "cards": {
+        "shape": "rounded",
+        "radius": 12,
+        "background": "surfaceSecondary",
+        "shadow": "none",
+        "border": "subtle"
+      },
+  
+      "charts": {
+        "style": "flat",
+        "gridLines": "minimal",
+        "axisLabels": "muted",
+        "lineThickness": 2,
+        "pointMarkers": false,
+        "animations": {
+          "enabled": true,
+          "durationMs": 400,
+          "easing": "ease-out"
+        }
+      },
+  
+      "dataBlocks": {
+        "metricEmphasis": "value-first",
+        "unitVisibility": "secondary",
+        "trendIndicators": "icon + color"
+      },
+  
+      "alerts": {
+        "severityLevels": ["info", "warning", "error"],
+        "layout": "stacked",
+        "icon": true,
+        "background": "surfaceElevated",
+        "actionable": true
+      },
+  
+      "buttons": {
+        "primary": {
+          "background": "brand.primary",
+          "text": "white",
+          "radius": 10
+        },
+        "secondary": {
+          "background": "transparent",
+          "border": "subtle",
+          "text": "text.primary"
+        }
+      }
+    },
+  
+    "iconography": {
+      "style": "outline",
+      "strokeWidth": 1.75,
+      "cornerStyle": "rounded",
+      "semanticIcons": true
+    },
+  
+    "motion": {
+      "philosophy": "subtle-functional",
+      "hover": "opacity + slight translate",
+      "loading": "skeleton",
+      "stateChange": "fade + slide"
+    },
+  
+    "accessibility": {
+      "contrastRatio": "AA+",
+      "colorIndependentSignals": true,
+      "focusStates": "visible",
+      "fontScaling": "supported"
+    },
+  
+    "tone": {
+      "visual": "serious and calm",
+      "emotional": "confidence and control",
+      "avoid": ["playful", "flashy", "over-animated"]
+    }
+  }
+  

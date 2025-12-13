@@ -1,0 +1,80 @@
+.trend-charts {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: var(--spacing-5);
+}
+
+.chart-card {
+  background-color: var(--bg-surface-primary);
+  border-radius: var(--border-radius-card);
+  border: 1px solid var(--border-subtle);
+  padding: var(--card-padding);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-4);
+}
+
+.chart-card h3 {
+  font-size: var(--font-size-h3);
+  font-weight: var(--font-weight-semibold);
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.chart-container {
+  height: 200px;
+  width: 100%;
+  background-color: var(--bg-surface-secondary);
+  border-radius: var(--border-radius-button);
+  padding: var(--spacing-4);
+}
+
+.custom-tooltip {
+  background-color: var(--bg-surface-elevated);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--border-radius-button);
+  padding: var(--spacing-2) var(--spacing-3);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.tooltip-label {
+  font-size: var(--font-size-caption);
+  color: var(--text-muted);
+  margin: 0 0 var(--spacing-1) 0;
+}
+
+.tooltip-value {
+  font-size: var(--font-size-body);
+  font-weight: var(--font-weight-semibold);
+  color: var(--text-primary);
+  margin: 0;
+  font-variant-numeric: tabular-nums;
+}
+
+.chart-footer {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-1);
+}
+
+.chart-value {
+  font-size: var(--font-size-h2);
+  font-weight: var(--font-weight-semibold);
+  color: var(--text-primary);
+  font-variant-numeric: tabular-nums;
+}
+
+.chart-label {
+  font-size: var(--font-size-caption);
+  color: var(--text-muted);
+}
+
+.charts-loading {
+  padding: var(--spacing-6);
+  text-align: center;
+  color: var(--text-muted);
+  background-color: var(--bg-surface-primary);
+  border-radius: var(--border-radius-card);
+  border: 1px solid var(--border-subtle);
+}
+

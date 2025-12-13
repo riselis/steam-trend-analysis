@@ -1,0 +1,19 @@
+.trend-analysis-page {
+  display: flex;
+  flex-direction: column;
+  gap: var(--section-gap);
+}
+
+.trend-analysis-page h1 {
+  margin-bottom: var(--spacing-2);
+}
+
+.loading-state {
+  padding: var(--spacing-6);
+  text-align: center;
+  color: var(--text-muted);
+  background-color: var(--bg-surface-primary);
+  border-radius: var(--border-radius-card);
+  border: 1px solid var(--border-subtle);
+}
+

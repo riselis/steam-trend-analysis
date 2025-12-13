@@ -1,0 +1,41 @@
+.register-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--bg-app);
+  padding: var(--layout-padding);
+}
+
+.register-container {
+  width: 100%;
+  max-width: 450px;
+  padding: var(--spacing-6);
+  background-color: var(--bg-surface-primary);
+  border-radius: var(--border-radius-card);
+  border: 1px solid var(--border-subtle);
+}
+
+.register-container h1 {
+  margin-bottom: var(--spacing-6);
+  text-align: center;
+}
+
+.login-link {
+  margin-top: var(--spacing-5);
+  text-align: center;
+  color: var(--text-secondary);
+  font-size: var(--font-size-body);
+}
+
+.login-link a {
+  color: var(--brand-primary);
+  text-decoration: none;
+  font-weight: var(--font-weight-medium);
+}
+
+.login-link a:hover {
+  color: var(--brand-secondary);
+  text-decoration: underline;
+}
+

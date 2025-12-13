@@ -1,0 +1,46 @@
+.trend-filters {
+  display: flex;
+  gap: var(--spacing-5);
+  padding: var(--spacing-5);
+  background-color: var(--bg-surface-primary);
+  border-radius: var(--border-radius-card);
+  border: 1px solid var(--border-subtle);
+  flex-wrap: wrap;
+}
+
+.filter-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-2);
+  flex: 1;
+  min-width: 150px;
+}
+
+.filter-group label {
+  font-size: var(--font-size-caption);
+  font-weight: var(--font-weight-medium);
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: var(--letter-spacing-label);
+}
+
+.filter-group select {
+  padding: var(--spacing-3) var(--spacing-4);
+  background-color: var(--bg-surface-secondary);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--border-radius-button);
+  color: var(--text-primary);
+  font-size: var(--font-size-body);
+  cursor: pointer;
+  transition: border-color 0.2s ease-out;
+}
+
+.filter-group select:focus {
+  border-color: var(--brand-primary);
+  outline: none;
+}
+
+.filter-group select:hover {
+  border-color: var(--border-strong);
+}
+
