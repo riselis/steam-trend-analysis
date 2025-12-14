@@ -41,7 +41,8 @@ function Step2PreviousExperience({ data, onUpdate, onNext, onPrevious }) {
     }
   };
 
-  const showAdditionalFields = releasedGamesCount !== "" && parseInt(releasedGamesCount) > 0;
+  const showAdditionalFields =
+    releasedGamesCount !== "" && parseInt(releasedGamesCount) > 0;
 
   return (
     <Box className="wizard-step">
@@ -65,6 +66,7 @@ function Step2PreviousExperience({ data, onUpdate, onNext, onPrevious }) {
           }}
           placeholder="0"
           fullWidth
+          autoComplete="off"
           sx={{ mb: 3 }}
         />
 
@@ -128,12 +130,16 @@ function Step2PreviousExperience({ data, onUpdate, onNext, onPrevious }) {
               }
               placeholder="Describe any challenges or problems encountered in previous projects..."
               fullWidth
+              autoComplete="off"
             />
           </>
         )}
       </Box>
 
-      <Box className="wizard-actions" sx={{ mt: 4, pt: 3, borderTop: 1, borderColor: 'divider' }}>
+      <Box
+        className="wizard-actions"
+        sx={{ mt: 4, pt: 3, borderTop: 1, borderColor: "divider" }}
+      >
         <Button variant="outlined" onClick={onPrevious}>
           Previous
         </Button>

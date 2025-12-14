@@ -2,10 +2,13 @@
   display: flex;
   gap: var(--spacing-5);
   padding: var(--spacing-5);
-  background-color: var(--bg-surface-primary);
+  background: rgba(21, 26, 35, 0.4);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
   border-radius: var(--border-radius-card);
-  border: 1px solid var(--border-subtle);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   flex-wrap: wrap;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
 }
 
 .filter-group {
@@ -26,42 +29,52 @@
 
 .filter-group select {
   padding: var(--spacing-3) var(--spacing-4);
-  background-color: var(--bg-surface-secondary);
-  border: 1px solid var(--border-subtle);
+  background: rgba(27, 34, 48, 0.5);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: var(--border-radius-button);
   color: var(--text-primary);
   font-size: var(--font-size-body);
   cursor: pointer;
-  transition: border-color 0.2s ease-out;
+  transition: border-color 0.2s ease-out, background 0.2s ease-out;
 }
 
 .filter-group select:focus {
   border-color: var(--brand-primary);
   outline: none;
+  background: rgba(27, 34, 48, 0.7);
+  box-shadow: 0 0 0 2px rgba(147, 51, 234, 0.2);
 }
 
 .filter-group select:hover {
-  border-color: var(--border-strong);
+  border-color: rgba(255, 255, 255, 0.2);
+  background: rgba(27, 34, 48, 0.6);
 }
 
 .filter-input {
   padding: var(--spacing-3) var(--spacing-4);
-  background-color: var(--bg-surface-secondary);
-  border: 1px solid var(--border-subtle);
+  background: rgba(27, 34, 48, 0.5);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: var(--border-radius-button);
   color: var(--text-primary);
   font-size: var(--font-size-body);
   cursor: pointer;
-  transition: border-color 0.2s ease-out;
+  transition: border-color 0.2s ease-out, background 0.2s ease-out;
   font-family: inherit;
 }
 
 .filter-input:focus {
   border-color: var(--brand-primary);
   outline: none;
+  background: rgba(27, 34, 48, 0.7);
+  box-shadow: 0 0 0 2px rgba(147, 51, 234, 0.2);
 }
 
 .filter-input:hover {
-  border-color: var(--border-strong);
+  border-color: rgba(255, 255, 255, 0.2);
+  background: rgba(27, 34, 48, 0.6);
 }
 

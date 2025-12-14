@@ -1,7 +1,10 @@
 .chat-input-form {
-  border-top: 1px solid var(--border-subtle);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
   padding: var(--spacing-4);
-  background-color: var(--bg-surface-primary);
+  background: rgba(21, 26, 35, 0.4);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.2);
 }
 
 .chat-input-container {
@@ -13,16 +16,21 @@
 .chat-input {
   flex: 1;
   padding: var(--spacing-3) var(--spacing-4);
-  background-color: var(--bg-surface-secondary);
-  border: 1px solid var(--border-subtle);
+  background: rgba(27, 34, 48, 0.5);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: var(--border-radius-button);
   color: var(--text-primary);
   font-size: var(--font-size-body);
-  transition: border-color 0.2s ease-out;
+  transition: border-color 0.2s ease-out, background 0.2s ease-out, box-shadow 0.2s ease-out;
 }
 
 .chat-input:focus {
   border-color: var(--brand-primary);
+  background: rgba(27, 34, 48, 0.7);
+  box-shadow: 0 0 0 2px rgba(147, 51, 234, 0.2);
+  outline: none;
 }
 
 .chat-input:disabled {

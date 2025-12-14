@@ -62,6 +62,7 @@ function Step5BusinessGoals({ data, onUpdate, onNext, onPrevious }) {
                 })
               }
               fullWidth
+              autoComplete="off"
             />
           </Grid>
           <Grid item xs={6}>
@@ -76,6 +77,7 @@ function Step5BusinessGoals({ data, onUpdate, onNext, onPrevious }) {
                 })
               }
               fullWidth
+              autoComplete="off"
             />
           </Grid>
         </Grid>
@@ -88,6 +90,7 @@ function Step5BusinessGoals({ data, onUpdate, onNext, onPrevious }) {
           onChange={(e) => handleChange("maxDevelopmentTime", e.target.value)}
           placeholder="Months"
           fullWidth
+          autoComplete="off"
           sx={{ mb: 3 }}
         />
 
@@ -97,6 +100,7 @@ function Step5BusinessGoals({ data, onUpdate, onNext, onPrevious }) {
           onChange={(e) => handleChange("targetReleaseWindow", e.target.value)}
           placeholder="e.g., Q2 2024"
           fullWidth
+          autoComplete="off"
           sx={{ mb: 3 }}
         />
 
@@ -126,6 +130,7 @@ function Step5BusinessGoals({ data, onUpdate, onNext, onPrevious }) {
               value={data.revenueExpected?.min || ""}
               onChange={(e) => handleRevenueChange("min", e.target.value)}
               fullWidth
+              autoComplete="off"
             />
           </Grid>
           <Grid item xs={6}>
@@ -136,12 +141,16 @@ function Step5BusinessGoals({ data, onUpdate, onNext, onPrevious }) {
               value={data.revenueExpected?.max || ""}
               onChange={(e) => handleRevenueChange("max", e.target.value)}
               fullWidth
+              autoComplete="off"
             />
           </Grid>
         </Grid>
       </Box>
 
-      <Box className="wizard-actions" sx={{ mt: 4, pt: 3, borderTop: 1, borderColor: 'divider' }}>
+      <Box
+        className="wizard-actions"
+        sx={{ mt: 4, pt: 3, borderTop: 1, borderColor: "divider" }}
+      >
         <Button variant="outlined" onClick={onPrevious}>
           Previous
         </Button>

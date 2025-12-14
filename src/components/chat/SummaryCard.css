@@ -1,14 +1,19 @@
 .summary-card {
-  background-color: var(--bg-surface-secondary);
-  border: 1px solid var(--border-subtle);
+  background: rgba(27, 34, 48, 0.4);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: var(--border-radius-card);
   margin-bottom: var(--spacing-4);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
 }
 
 .revenue-block {
-  background-color: var(--bg-surface-primary);
+  background: rgba(21, 26, 35, 0.4);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   padding: var(--spacing-2);
   border-radius: var(--border-radius-button);
-  border: 1px solid var(--border-subtle);
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 

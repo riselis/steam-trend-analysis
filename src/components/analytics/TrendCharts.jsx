@@ -136,12 +136,19 @@ function TrendCharts({ data }) {
                 tick={{ fill: "#6C78A0", fontSize: 11 }}
               />
               <Tooltip content={<CustomTooltip />} />
-              <Legend wrapperStyle={{ paddingTop: "20px" }} iconType="line" />
+              <Legend
+                iconType="line"
+                wrapperStyle={{
+                  paddingTop: "20px",
+                  marginBottom: "10px",
+                }}
+              />
+
               <Line
                 type="monotone"
                 dataKey="released"
                 name="Released Games"
-                stroke="#5B7CFF"
+                stroke="#9333EA"
                 strokeWidth={2}
                 dot={false}
                 activeDot={{ r: 4 }}
@@ -150,7 +157,7 @@ function TrendCharts({ data }) {
                 type="monotone"
                 dataKey="profitable"
                 name="Profitable Games"
-                stroke="#7AA2FF"
+                stroke="#A855F7"
                 strokeWidth={2}
                 dot={false}
                 activeDot={{ r: 4 }}

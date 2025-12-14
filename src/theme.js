@@ -4,9 +4,9 @@ export const theme = createTheme({
   palette: {
     mode: "dark",
     primary: {
-      main: "#5B7CFF",
-      light: "#7AA2FF",
-      dark: "#9BB4FF",
+      main: "#9333EA",
+      light: "#A855F7",
+      dark: "#C084FC",
     },
     background: {
       default: "#0B1020",
@@ -20,7 +20,8 @@ export const theme = createTheme({
     divider: "rgba(255, 255, 255, 0.06)",
   },
   typography: {
-    fontFamily: "Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
+    fontFamily:
+      "Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
     h6: {
       fontSize: "18px",
       fontWeight: 600,
@@ -44,7 +45,7 @@ export const theme = createTheme({
               borderColor: "rgba(255, 255, 255, 0.12)",
             },
             "&.Mui-focused fieldset": {
-              borderColor: "#5B7CFF",
+              borderColor: "#9333EA",
             },
           },
         },
@@ -61,7 +62,7 @@ export const theme = createTheme({
             borderColor: "rgba(255, 255, 255, 0.12)",
           },
           "&.Mui-focused .MuiOutlinedInput-notchedOutline": {
-            borderColor: "#5B7CFF",
+            borderColor: "#9333EA",
           },
         },
       },
@@ -69,9 +70,9 @@ export const theme = createTheme({
     MuiButton: {
       styleOverrides: {
         contained: {
-          backgroundColor: "#5B7CFF",
+          backgroundColor: "#9333EA",
           "&:hover": {
-            backgroundColor: "#7AA2FF",
+            backgroundColor: "#A855F7",
           },
         },
         outlined: {
@@ -98,7 +99,7 @@ export const theme = createTheme({
         root: {
           color: "#A3AED0",
           "&.Mui-checked": {
-            color: "#5B7CFF",
+            color: "#9333EA",
           },
         },
       },
@@ -108,7 +109,7 @@ export const theme = createTheme({
         root: {
           color: "#A3AED0",
           "&.Mui-checked": {
-            color: "#5B7CFF",
+            color: "#9333EA",
           },
         },
       },
@@ -124,4 +125,3 @@ export const theme = createTheme({
     },
   },
 });
-

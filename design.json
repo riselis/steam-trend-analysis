@@ -1,191 +1,199 @@
 {
     "meta": {
-      "name": "Dark Energy Ops Dashboard",
-      "style": "dark-enterprise-analytics",
-      "industry": ["energy", "solar", "infrastructure", "monitoring"],
-      "personality": ["calm", "precise", "reliable", "technical", "premium"],
-      "targetUsers": ["operators", "engineers", "managers"],
+      "name": "AI Analytics Dashboard",
+      "style": "dark-ai-saas-dashboard",
+      "industry": ["ai", "analytics", "saas", "gaming", "monitoring"],
+      "personality": ["intelligent", "calm", "modern", "insightful", "premium"],
+      "targetUsers": ["founders", "product managers", "analysts", "developers"],
       "designGoals": [
-        "High information density without visual stress",
-        "Immediate anomaly recognition",
-        "Trustworthy and professional look",
-        "Clear hierarchy for real-time monitoring"
+        "Instant insight extraction",
+        "Friendly AI-first experience",
+        "High data density with soft visuals",
+        "Professional but approachable tone"
       ]
     },
   
     "uxPrinciples": {
-      "primaryFocus": "situational-awareness",
-      "cognitiveLoad": "low",
-      "visualNoise": "minimal",
-      "scanPattern": "left-navigation -> main-visual -> right-alerts",
-      "feedbackSpeed": "instant",
-      "interactionPhilosophy": "observe-first-act-second",
-      "emptyStates": "informative-not-decorative"
+      "primaryFocus": "insight-discovery",
+      "cognitiveLoad": "medium-low",
+      "visualNoise": "very-low",
+      "scanPattern": "sidebar -> KPI cards -> charts -> logs",
+      "feedbackSpeed": "fast",
+      "interactionPhilosophy": "explore-first-analyze-deeper",
+      "emptyStates": "friendly-and-guiding"
     },
   
     "colorSystem": {
       "mode": "dark",
       "background": {
-        "app": "#0B1020",
-        "surfacePrimary": "#0F1629",
-        "surfaceSecondary": "#131B34",
-        "surfaceElevated": "#18224A"
+        "app": "#0E1118",
+        "surfacePrimary": "#151A23",
+        "surfaceSecondary": "#1B2230",
+        "surfaceElevated": "#222A3B"
       },
       "text": {
-        "primary": "#E6E9F2",
-        "secondary": "#A3AED0",
-        "muted": "#6C78A0",
-        "disabled": "#4A547A"
+        "primary": "#E9ECF1",
+        "secondary": "#B2B8C7",
+        "muted": "#7C849C",
+        "disabled": "#4F566B"
       },
       "brand": {
-        "primary": "#5B7CFF",
-        "secondary": "#7AA2FF",
-        "accent": "#9BB4FF"
+        "primary": "#9333EA",
+        "secondary": "#A855F7",
+        "accent": "#C084FC"
       },
       "status": {
-        "success": "#3DD598",
-        "warning": "#FFC542",
-        "error": "#FF6B6B",
-        "info": "#5B7CFF"
+        "success": "#22C55E",
+        "warning": "#F59E0B",
+        "error": "#EF4444",
+        "info": "#9333EA"
       },
       "dataViz": {
-        "normal": "#5B7CFF",
-        "highlight": "#7AA2FF",
-        "critical": "#FF6B6B",
-        "inactive": "#2A335A"
+        "normal": "#9333EA",
+        "highlight": "#A855F7",
+        "secondary": "#C084FC",
+        "inactive": "#2D3446"
       },
       "borders": {
-        "subtle": "rgba(255,255,255,0.06)",
-        "strong": "rgba(255,255,255,0.12)"
+        "subtle": "rgba(255,255,255,0.04)",
+        "strong": "rgba(255,255,255,0.10)"
+      },
+      "effects": {
+        "cardGlow": "0 0 0 1px rgba(147,51,234,0.15)",
+        "hoverGlow": "0 0 12px rgba(147,51,234,0.35)"
       }
     },
   
     "typography": {
       "fontFamily": "Inter",
       "scale": {
-        "h1": { "size": 28, "weight": 600, "lineHeight": 1.3 },
-        "h2": { "size": 22, "weight": 600, "lineHeight": 1.35 },
+        "h1": { "size": 30, "weight": 700, "lineHeight": 1.25 },
+        "h2": { "size": 22, "weight": 600, "lineHeight": 1.3 },
         "h3": { "size": 18, "weight": 600, "lineHeight": 1.4 },
         "body": { "size": 14, "weight": 400, "lineHeight": 1.6 },
         "caption": { "size": 12, "weight": 400, "lineHeight": 1.4 },
-        "label": { "size": 11, "weight": 500, "letterSpacing": 0.6 }
+        "label": { "size": 11, "weight": 500, "letterSpacing": 0.5 }
       },
       "numeric": {
         "fontVariant": "tabular-nums",
-        "emphasis": "medium"
+        "emphasis": "bold"
       }
     },
   
     "spacingSystem": {
       "baseUnit": 8,
-      "scale": [4, 8, 12, 16, 24, 32, 48, 64],
+      "scale": [4, 8, 12, 16, 20, 24, 32, 48],
       "layoutPadding": 24,
-      "cardPadding": 20,
-      "sectionGap": 32
+      "cardPadding": 18,
+      "sectionGap": 28
     },
   
     "layout": {
-      "structure": "sidebar + main + contextPanel",
+      "structure": "sidebar + topbar + main",
       "sidebar": {
-        "width": 240,
+        "width": 260,
         "behavior": "persistent",
-        "visualWeight": "low",
-        "background": "surfacePrimary"
+        "visualWeight": "medium",
+        "background": "surfacePrimary",
+        "activeItemStyle": "rounded-pill"
+      },
+      "topbar": {
+        "height": 64,
+        "background": "surfacePrimary",
+        "search": true,
+        "actions": ["language", "settings", "profile"]
       },
       "mainArea": {
-        "grid": "12-column",
-        "contentDensity": "high",
-        "primaryVisual": "center"
-      },
-      "contextPanel": {
-        "position": "right",
-        "width": 320,
-        "purpose": "alerts-and-actions"
+        "grid": "responsive-card-grid",
+        "contentDensity": "balanced",
+        "primaryVisual": "kpi-and-charts"
       }
     },
   
     "components": {
       "navigation": {
         "style": "icon + label",
-        "activeState": "left-accent-bar",
+        "activeState": "pill-background",
         "hover": "soft-glow",
-        "iconColor": "text.secondary"
+        "iconColor": "brand.primary"
       },
   
       "cards": {
         "shape": "rounded",
-        "radius": 12,
+        "radius": 16,
         "background": "surfaceSecondary",
         "shadow": "none",
-        "border": "subtle"
+        "border": "subtle",
+        "glow": true
       },
   
       "charts": {
-        "style": "flat",
-        "gridLines": "minimal",
+        "style": "smooth-gradient",
+        "gridLines": "none",
         "axisLabels": "muted",
-        "lineThickness": 2,
+        "lineThickness": 3,
         "pointMarkers": false,
+        "fill": "gradient",
         "animations": {
           "enabled": true,
-          "durationMs": 400,
+          "durationMs": 600,
           "easing": "ease-out"
         }
       },
   
-      "dataBlocks": {
-        "metricEmphasis": "value-first",
-        "unitVisibility": "secondary",
-        "trendIndicators": "icon + color"
+      "kpiCards": {
+        "iconBackground": "brand.primary",
+        "iconColor": "#FFFFFF",
+        "trendIndicator": "percentage-text",
+        "layout": "value-first"
       },
   
-      "alerts": {
-        "severityLevels": ["info", "warning", "error"],
-        "layout": "stacked",
-        "icon": true,
-        "background": "surfaceElevated",
-        "actionable": true
+      "activityLog": {
+        "avatar": true,
+        "timestamp": "muted",
+        "density": "compact"
       },
   
       "buttons": {
         "primary": {
           "background": "brand.primary",
           "text": "white",
-          "radius": 10
+          "radius": 14,
+          "hoverEffect": "glow"
         },
         "secondary": {
-          "background": "transparent",
-          "border": "subtle",
+          "background": "surfaceElevated",
+          "border": "none",
           "text": "text.primary"
         }
       }
     },
   
     "iconography": {
-      "style": "outline",
-      "strokeWidth": 1.75,
+      "style": "soft-outline",
+      "strokeWidth": 1.5,
       "cornerStyle": "rounded",
       "semanticIcons": true
     },
   
     "motion": {
-      "philosophy": "subtle-functional",
-      "hover": "opacity + slight translate",
-      "loading": "skeleton",
+      "philosophy": "smooth-and-friendly",
+      "hover": "glow + slight scale",
+      "loading": "shimmer / pulse",
       "stateChange": "fade + slide"
     },
   
     "accessibility": {
-      "contrastRatio": "AA+",
+      "contrastRatio": "AA",
       "colorIndependentSignals": true,
       "focusStates": "visible",
       "fontScaling": "supported"
     },
   
     "tone": {
-      "visual": "serious and calm",
-      "emotional": "confidence and control",
-      "avoid": ["playful", "flashy", "over-animated"]
+      "visual": "modern and soft",
+      "emotional": "confidence with friendliness",
+      "avoid": ["harsh", "industrial", "overly-serious"]
     }
   }
   

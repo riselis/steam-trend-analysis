@@ -60,21 +60,38 @@ export const register = async (email, password, name) => {
   };
 };
 
-// Chat API
 export const fetchChatResponse = async (message) => {
   await delay(3200);
 
-  const responses = [
-    "Based on the current Steam trends, I can help you analyze player engagement patterns.",
-    "The data shows interesting patterns in user behavior across different game genres.",
-    "Let me break down the key metrics for you: player retention has increased by 12% this quarter.",
-    "I can provide insights on trending games and their performance metrics.",
-    "Would you like me to analyze specific game categories or time periods?",
-  ];
+  const normalized = message.toLowerCase();
 
+  // Strategic + 3D
+  if (normalized.includes("strategic") && normalized.includes("3d")) {
+    return {
+      success: true,
+      response:
+        "If you are aiming for a more strategic and fully 3D experience, a City Builder combined with Tower Defense mechanics is a strong and realistic direction.",
+    };
+  }
+
+  // Large team + big investment
+  if (
+    normalized.includes("over 10") ||
+    normalized.includes("large team") ||
+    normalized.includes("investment")
+  ) {
+    return {
+      success: true,
+      response:
+        "With a team of over 10 people and plans for larger investment, an Open World Survival Craft game becomes a viable option with long-term growth potential.",
+    };
+  }
+
+  // Default fallback
   return {
     success: true,
-    response: responses[Math.floor(Math.random() * responses.length)],
+    response:
+      "I can help you explore different strategic directions based on your team size, technical ambitions, and investment goals.",
   };
 };
 
@@ -87,152 +104,164 @@ export const submitTrendInput = async (formData) => {
 
   // Generate mock structured response
   const summary = {
-    recommended_niche: formData.preferredGenres?.[0] || "Action RPG",
-    core_theme: formData.themePreferences?.[0] || "strategy",
+    recommended_niche: "Roguelike Deckbuilder",
+    core_theme: "tactical decision-making",
     game_mode: formData.gameMode || "singleplayer",
-    recommended_release_window: formData.targetReleaseWindow || "Q2 2024",
+    recommended_release_window: "Q2 2025",
     target_audience: {
       age_range: {
-        min: formData.targetAgeGroup?.min || 18,
-        max: formData.targetAgeGroup?.max || 35,
+        min: 20,
+        max: 40,
       },
-      player_type: formData.playerType || "midcore",
+      player_type: "core",
     },
     risk_success: {
-      success_probability: 72.5,
+      success_probability: 64.0,
       risk_level: "moderate",
       ai_summary:
-        "Based on your team composition and project scope, this niche shows strong market potential with moderate competition. Success probability is favorable given your technical capabilities.",
+        "Roguelike deckbuilders have a proven and loyal audience on PC platforms, especially Steam. While the market is competitive, strong mechanics, replayability, and clarity of design significantly increase success odds for small to mid-sized teams.",
     },
     revenue_snapshot: {
-      month_1: {
-        low: 5000,
-        mid: 15000,
-        high: 35000,
-      },
-      month_3: {
-        low: 12000,
-        mid: 45000,
-        high: 95000,
-      },
+      month_1: { low: 3000, mid: 10000, high: 25000 },
+      month_6: { low: 15000, mid: 60000, high: 120000 },
+      month_12: { low: 30000, mid: 120000, high: 250000 },
     },
   };
 
   const top_niches = [
     {
-      niche_title: formData.preferredGenres?.[0] || "Action RPG",
-      trend_direction: "up",
-      success_probability: 72.5,
-      risk_score: 35,
-      market_saturation: 45,
-      competition_density: 60,
-      team_fit_score: 85,
+      niche_title: "Roguelike Deckbuilder",
+      trend_direction: "stable_up",
+      success_probability: 64.0,
+      risk_score: 40,
+      market_saturation: 60,
+      competition_density: 70,
+      team_fit_score: 82,
       release_timing: {
-        recommended_window: "Q2 2024",
+        recommended_window: "Q2 2025",
         best_months: ["April", "May", "June"],
         worst_months: ["December", "January"],
-        visibility_score: 78,
+        visibility_score: 74,
       },
       financial_projections: {
-        month_1: { low: 5000, mid: 15000, high: 35000 },
-        month_6: { low: 25000, mid: 75000, high: 150000 },
-        month_12: { low: 50000, mid: 180000, high: 400000 },
+        month_1: { low: 3000, mid: 10000, high: 25000 },
+        month_6: { low: 15000, mid: 60000, high: 120000 },
+        month_12: { low: 30000, mid: 120000, high: 250000 },
       },
       product_direction: {
-        game_mode: formData.gameMode || "singleplayer",
-        core_theme: formData.themePreferences?.[0] || "strategy",
+        game_mode: "singleplayer",
+        core_theme: "tactical deck optimization",
         recommended_scope: "medium",
-        core_mechanics: ["Combat", "Progression", "Exploration"],
+        core_mechanics: [
+          "Deck Building",
+          "Turn-Based Combat",
+          "Meta Progression",
+          "Synergy Optimization",
+        ],
       },
       publisher_fit: [
         {
-          publisher: "Publisher A",
-          match_score: 82,
-          example_games: ["Game X", "Game Y"],
+          publisher: "Humble Games",
+          match_score: 84,
+          example_games: ["Slay the Spire", "For The King", "Void Bastards"],
         },
         {
-          publisher: "Publisher B",
-          match_score: 75,
-          example_games: ["Game Z"],
+          publisher: "Devolver Digital",
+          match_score: 76,
+          example_games: ["Inscryption", "Loop Hero"],
+        },
+        {
+          publisher: "Hooded Horse",
+          match_score: 71,
+          example_games: ["Against the Storm", "Norland"],
         },
       ],
       marketing_plan: {
         pre_launch:
-          "Build community through Discord and Twitter. Create dev logs and teaser content.",
+          "Steam page live early with playable demo. Devlogs focused on card synergies and design philosophy. Participate in Steam Next Fest.",
         launch:
-          "Steam page optimization, influencer partnerships, press kit distribution.",
+          "Leverage Steam algorithm via wishlists, coordinated streamer coverage, and Reddit exposure (r/roguelikes, r/deckbuilders).",
         post_launch:
-          "Regular content updates, community engagement, seasonal events.",
-        primary_channels: ["Steam", "Discord", "Twitter"],
+          "Balance updates, new cards, additional characters, and challenge modes to drive retention.",
+        primary_channels: ["Steam", "YouTube", "Reddit", "Discord"],
         community_strategy:
-          "Active moderation, weekly updates, player feedback integration.",
+          "Active Discord with feedback-driven balance patches and public roadmap.",
         risks:
-          "Market saturation in target genre, timing competition with major releases.",
+          "High competition within the genre and strong player expectations for balance and depth.",
       },
       explainability: {
         top_success_factors: [
-          "Strong team composition",
-          "Clear target audience",
-          "Moderate competition",
+          "Proven genre demand",
+          "High replayability potential",
+          "Clear scope control",
         ],
         top_risk_factors: [
-          "Market timing",
-          "Competition density",
-          "Scope management",
+          "Genre fatigue",
+          "Balance complexity",
+          "Discoverability on Steam",
         ],
-        model_confidence: 78.5,
+        model_confidence: 77.0,
       },
     },
     {
-      niche_title: formData.preferredGenres?.[1] || "Strategy",
+      niche_title: "Strategy Deckbuilder",
       trend_direction: "stable",
-      success_probability: 65.0,
-      risk_score: 42,
-      market_saturation: 55,
-      competition_density: 70,
-      team_fit_score: 72,
+      success_probability: 58.0,
+      risk_score: 48,
+      market_saturation: 65,
+      competition_density: 75,
+      team_fit_score: 70,
       release_timing: {
-        recommended_window: "Q3 2024",
+        recommended_window: "Q3 2025",
         best_months: ["July", "August"],
         worst_months: ["November", "December"],
-        visibility_score: 65,
+        visibility_score: 66,
       },
       financial_projections: {
-        month_1: { low: 4000, mid: 12000, high: 28000 },
-        month_6: { low: 20000, mid: 60000, high: 120000 },
-        month_12: { low: 40000, mid: 150000, high: 350000 },
+        month_1: { low: 2500, mid: 8000, high: 20000 },
+        month_6: { low: 12000, mid: 45000, high: 90000 },
+        month_12: { low: 25000, mid: 90000, high: 200000 },
       },
       product_direction: {
-        game_mode: formData.gameMode || "singleplayer",
-        core_theme: "strategy",
+        game_mode: "singleplayer",
+        core_theme: "long-term strategic planning",
         recommended_scope: "medium",
-        core_mechanics: ["Planning", "Resource Management", "Tactical Combat"],
+        core_mechanics: [
+          "Resource Management",
+          "Deck Optimization",
+          "Scenario-Based Progression",
+        ],
       },
       publisher_fit: [
         {
-          publisher: "Publisher C",
-          match_score: 70,
-          example_games: ["Game A"],
+          publisher: "Raw Fury",
+          match_score: 69,
+          example_games: ["Card Shark", "Kingdom"],
         },
       ],
       marketing_plan: {
         pre_launch:
-          "Strategy-focused content, tutorial videos, community building.",
-        launch: "Steam featured placement, strategy gaming sites coverage.",
-        post_launch: "DLC content, balance updates, competitive features.",
-        primary_channels: ["Steam", "YouTube", "Reddit"],
+          "Long-form gameplay previews and deep-dive videos explaining systems.",
+        launch:
+          "Press outreach to strategy-focused media and Steam visibility events.",
+        post_launch: "Scenario expansions and difficulty modes.",
+        primary_channels: ["Steam", "YouTube", "Discord"],
         community_strategy:
-          "Strategy guides, balance discussions, tournament organization.",
-        risks: "Higher competition, need for deep gameplay systems.",
+          "High-quality guides, theorycrafting discussions, and mod support.",
+        risks: "Higher learning curve and narrower audience.",
       },
       explainability: {
         top_success_factors: [
-          "Niche appeal",
-          "Team expertise",
-          "Market demand",
+          "Dedicated niche audience",
+          "Depth of systems",
+          "Replay value",
         ],
-        top_risk_factors: ["Complexity", "Learning curve", "Competition"],
-        model_confidence: 72.0,
+        top_risk_factors: [
+          "Complex onboarding",
+          "Lower mass appeal",
+          "Competition from established titles",
+        ],
+        model_confidence: 70.0,
       },
     },
   ];
@@ -253,145 +282,164 @@ export const submitTrendInput = async (formData) => {
 export const getFullReport = async (responseId) => {
   await delay(1000);
 
-  // Return structured response (same as initial submit)
-  // In real app, this would fetch from server
-  // For now, generate mock data similar to submitTrendInput
   const summary = {
-    recommended_niche: "Action RPG",
-    core_theme: "strategy",
+    recommended_niche: "Roguelike Deckbuilder",
+    core_theme: "tactical decision-making",
     game_mode: "singleplayer",
-    recommended_release_window: "Q2 2024",
+    recommended_release_window: "Q2 2025",
     target_audience: {
-      age_range: { min: 18, max: 35 },
-      player_type: "midcore",
+      age_range: { min: 20, max: 40 },
+      player_type: "core",
     },
     risk_success: {
-      success_probability: 72.5,
+      success_probability: 64.0,
       risk_level: "moderate",
       ai_summary:
-        "Based on your team composition and project scope, this niche shows strong market potential with moderate competition.",
+        "Roguelike deckbuilders have a stable and proven audience on Steam. While competition is high, titles with strong mechanical depth, replayability, and clear visual identity consistently perform well in this niche.",
     },
     revenue_snapshot: {
-      month_1: { low: 5000, mid: 15000, high: 35000 },
-      month_3: { low: 12000, mid: 45000, high: 95000 },
+      month_1: { low: 3000, mid: 10000, high: 25000 },
+      month_2: { low: 5000, mid: 18000, high: 40000 },
+      month_3: { low: 8000, mid: 30000, high: 70000 },
+      month_6: { low: 15000, mid: 60000, high: 120000 },
+      month_9: { low: 20000, mid: 90000, high: 180000 },
+      month_12: { low: 30000, mid: 120000, high: 250000 },
     },
   };
 
   const top_niches = [
     {
-      niche_title: "Action RPG",
-      trend_direction: "up",
-      success_probability: 72.5,
-      risk_score: 35,
-      market_saturation: 45,
-      competition_density: 60,
-      team_fit_score: 85,
+      niche_title: "Roguelike Deckbuilder",
+      trend_direction: "stable_up",
+      success_probability: 64.0,
+      risk_score: 40,
+      market_saturation: 60,
+      competition_density: 70,
+      team_fit_score: 82,
       release_timing: {
-        recommended_window: "Q2 2024",
+        recommended_window: "Q2 2025",
         best_months: ["April", "May", "June"],
         worst_months: ["December", "January"],
-        visibility_score: 78,
+        visibility_score: 74,
       },
       financial_projections: {
-        month_1: { low: 5000, mid: 15000, high: 35000 },
-        month_6: { low: 25000, mid: 75000, high: 150000 },
-        month_12: { low: 50000, mid: 180000, high: 400000 },
+        month_1: { low: 3000, mid: 10000, high: 25000 },
+        month_6: { low: 15000, mid: 60000, high: 120000 },
+        month_12: { low: 30000, mid: 120000, high: 250000 },
       },
       product_direction: {
         game_mode: "singleplayer",
-        core_theme: "strategy",
+        core_theme: "tactical deck optimization",
         recommended_scope: "medium",
-        core_mechanics: ["Combat", "Progression", "Exploration"],
+        core_mechanics: [
+          "Deck Building",
+          "Turn-Based Combat",
+          "Meta Progression",
+          "Synergy Optimization",
+        ],
       },
       publisher_fit: [
         {
-          publisher: "Publisher A",
-          match_score: 82,
-          example_games: ["Game X", "Game Y"],
+          publisher: "Humble Games",
+          match_score: 84,
+          example_games: ["Slay the Spire", "For The King", "Void Bastards"],
         },
         {
-          publisher: "Publisher B",
-          match_score: 75,
-          example_games: ["Game Z"],
+          publisher: "Devolver Digital",
+          match_score: 76,
+          example_games: ["Inscryption", "Loop Hero"],
+        },
+        {
+          publisher: "Hooded Horse",
+          match_score: 71,
+          example_games: ["Against the Storm", "Norland"],
         },
       ],
       marketing_plan: {
         pre_launch:
-          "Build community through Discord and Twitter. Create dev logs and teaser content.",
+          "Early Steam page with playable demo, devlogs focused on card synergies, and participation in Steam Next Fest.",
         launch:
-          "Steam page optimization, influencer partnerships, press kit distribution.",
+          "Wishlist conversion push, coordinated streamer coverage, and exposure on Reddit and YouTube.",
         post_launch:
-          "Regular content updates, community engagement, seasonal events.",
-        primary_channels: ["Steam", "Discord", "Twitter"],
+          "Balance patches, new cards, additional characters, and challenge modes.",
+        primary_channels: ["Steam", "YouTube", "Reddit", "Discord"],
         community_strategy:
-          "Active moderation, weekly updates, player feedback integration.",
+          "Feedback-driven balance updates, transparent roadmap, and active Discord moderation.",
         risks:
-          "Market saturation in target genre, timing competition with major releases.",
+          "High competition and strong player expectations for balance and replayability.",
       },
       explainability: {
         top_success_factors: [
-          "Strong team composition",
-          "Clear target audience",
-          "Moderate competition",
+          "Proven genre demand",
+          "High replayability",
+          "Controlled production scope",
         ],
         top_risk_factors: [
-          "Market timing",
-          "Competition density",
-          "Scope management",
+          "Genre fatigue",
+          "Balance complexity",
+          "Steam discoverability",
         ],
-        model_confidence: 78.5,
+        model_confidence: 77.0,
       },
     },
     {
-      niche_title: "Strategy",
+      niche_title: "Strategy Deckbuilder",
       trend_direction: "stable",
-      success_probability: 65.0,
-      risk_score: 42,
-      market_saturation: 55,
-      competition_density: 70,
-      team_fit_score: 72,
+      success_probability: 58.0,
+      risk_score: 48,
+      market_saturation: 65,
+      competition_density: 75,
+      team_fit_score: 70,
       release_timing: {
-        recommended_window: "Q3 2024",
+        recommended_window: "Q3 2025",
         best_months: ["July", "August"],
         worst_months: ["November", "December"],
-        visibility_score: 65,
+        visibility_score: 66,
       },
       financial_projections: {
-        month_1: { low: 4000, mid: 12000, high: 28000 },
-        month_6: { low: 20000, mid: 60000, high: 120000 },
-        month_12: { low: 40000, mid: 150000, high: 350000 },
+        month_1: { low: 2500, mid: 8000, high: 20000 },
+        month_6: { low: 12000, mid: 45000, high: 90000 },
+        month_12: { low: 25000, mid: 90000, high: 200000 },
       },
       product_direction: {
         game_mode: "singleplayer",
-        core_theme: "strategy",
+        core_theme: "long-term strategic planning",
         recommended_scope: "medium",
-        core_mechanics: ["Planning", "Resource Management", "Tactical Combat"],
+        core_mechanics: [
+          "Resource Management",
+          "Deck Optimization",
+          "Scenario-Based Progression",
+        ],
       },
       publisher_fit: [
         {
-          publisher: "Publisher C",
-          match_score: 70,
-          example_games: ["Game A"],
+          publisher: "Raw Fury",
+          match_score: 69,
+          example_games: ["Card Shark", "Kingdom"],
         },
       ],
       marketing_plan: {
-        pre_launch:
-          "Strategy-focused content, tutorial videos, community building.",
-        launch: "Steam featured placement, strategy gaming sites coverage.",
-        post_launch: "DLC content, balance updates, competitive features.",
-        primary_channels: ["Steam", "YouTube", "Reddit"],
+        pre_launch: "Deep-dive videos explaining systems and mechanics.",
+        launch:
+          "Outreach to strategy-focused media and Steam visibility events.",
+        post_launch: "Scenario expansions and difficulty modifiers.",
+        primary_channels: ["Steam", "YouTube", "Discord"],
         community_strategy:
-          "Strategy guides, balance discussions, tournament organization.",
-        risks: "Higher competition, need for deep gameplay systems.",
+          "Guides, theorycrafting discussions, and optional mod support.",
+        risks: "Higher learning curve and narrower audience.",
       },
       explainability: {
         top_success_factors: [
-          "Niche appeal",
-          "Team expertise",
-          "Market demand",
+          "Dedicated niche audience",
+          "System depth",
+          "Replay value",
         ],
-        top_risk_factors: ["Complexity", "Learning curve", "Competition"],
-        model_confidence: 72.0,
+        top_risk_factors: [
+          "Complex onboarding",
+          "Lower mass appeal",
+          "Strong genre incumbents",
+        ],
+        model_confidence: 70.0,
       },
     },
   ];

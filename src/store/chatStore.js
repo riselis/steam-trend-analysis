@@ -10,22 +10,60 @@ const deriveChatName = (chatResponse, responseId) => {
     return `Game Strategy Chat ${responseId}`;
   }
 
-  // Get first sentence or first line
-  const firstLine = chatResponse.split("\n")[0].trim();
-  const firstSentence = firstLine.split(/[.!?]/)[0].trim();
+  try {
+    // Support both stringified JSON and object
+    const data =
+      typeof chatResponse === "string"
+        ? JSON.parse(chatResponse)
+        : chatResponse;
 
-  // Use first sentence if reasonable length, otherwise first line
-  let name =
-    firstSentence.length > 10 && firstSentence.length < 100
-      ? firstSentence
-      : firstLine;
+    const niche = data?.summary?.recommended_niche;
+    const theme = data?.summary?.core_theme;
+    const mode = data?.summary?.game_mode;
+    const success = data?.summary?.risk_success?.success_probability;
 
-  // Trim to max 40 characters
-  if (name.length > 40) {
-    name = name.substring(0, 37) + "...";
+    let name = "";
+
+    // 1️⃣ Best possible name (most semantic)
+    if (niche && theme) {
+      name = `${niche} · ${theme}`;
+      if (mode) name += ` (${mode})`;
+    }
+    // 2️⃣ Alternative with success signal
+    else if (niche && success !== undefined) {
+      name = `${niche} (${Math.round(success)}% success)`;
+    }
+    // 3️⃣ Fallback to niche only
+    else if (niche) {
+      name = niche;
+    }
+
+    // Enforce max length (40 chars)
+    if (name.length > 40) {
+      name = name.substring(0, 37) + "...";
+    }
+
+    return name || `Game Strategy Chat ${responseId}`;
+  } catch (e) {
+    // ⬇️ FINAL FALLBACK (old behavior, but safer)
+    if (typeof chatResponse === "string") {
+      const firstLine = chatResponse.split("\n")[0]?.trim() || "";
+      const firstSentence = firstLine.split(/[.!?]/)[0]?.trim() || "";
+
+      let name =
+        firstSentence.length > 10 && firstSentence.length < 100
+          ? firstSentence
+          : firstLine;
+
+      if (name.length > 40) {
+        name = name.substring(0, 37) + "...";
+      }
+
+      return name || `Game Strategy Chat ${responseId}`;
+    }
+
+    return `Game Strategy Chat ${responseId}`;
   }
-
-  return name || `Game Strategy Chat ${responseId}`;
 };
 
 // Load chats from localStorage

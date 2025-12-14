@@ -25,7 +25,7 @@ function Sidebar() {
   }, []);
 
   const navItems = [
-    { path: "/chatbot", label: "ChatBot", icon: ChatIcon },
+    { path: "/chatbot", label: "AI Analysis", icon: ChatIcon },
     { path: "/trend-analysis", label: "Trend Analysis", icon: TrendingUpIcon },
     { path: "/analytics", label: "Deep Data Analytics", icon: BarChartIcon },
   ];

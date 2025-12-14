@@ -5,13 +5,23 @@
 }
 
 .analytics-section {
-  background-color: var(--bg-surface-primary);
+  background: rgba(21, 26, 35, 0.4);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
   border-radius: var(--border-radius-card);
-  border: 1px solid var(--border-subtle);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   padding: var(--card-padding);
   display: flex;
   flex-direction: column;
   gap: var(--spacing-4);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  transition: transform 0.2s ease-out, box-shadow 0.2s ease-out, border-color 0.2s ease-out;
+}
+
+.analytics-section:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 40px rgba(147, 51, 234, 0.2);
+  border-color: rgba(147, 51, 234, 0.3);
 }
 
 .section-title {
@@ -24,9 +34,12 @@
 .chart-container {
   height: 300px;
   width: 100%;
-  background-color: var(--bg-surface-secondary);
+  background: rgba(27, 34, 48, 0.3);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   border-radius: var(--border-radius-button);
   padding: var(--spacing-4);
+  border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .retention-charts {
@@ -40,11 +53,13 @@
 }
 
 .custom-tooltip {
-  background-color: var(--bg-surface-elevated);
-  border: 1px solid var(--border-strong);
+  background: rgba(34, 42, 59, 0.8);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
   border-radius: var(--border-radius-button);
   padding: var(--spacing-2) var(--spacing-3);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
 }
 
 .tooltip-label {
@@ -87,9 +102,18 @@
   flex-direction: column;
   gap: var(--spacing-2);
   padding: var(--spacing-4);
-  background-color: var(--bg-surface-secondary);
+  background: rgba(27, 34, 48, 0.4);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   border-radius: var(--border-radius-button);
-  border: 1px solid var(--border-subtle);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s ease-out, box-shadow 0.2s ease-out;
+}
+
+.metric-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(147, 51, 234, 0.15);
 }
 
 .metric-label {
@@ -131,9 +155,12 @@
   padding: var(--spacing-6);
   text-align: center;
   color: var(--text-muted);
-  background-color: var(--bg-surface-primary);
+  background: rgba(21, 26, 35, 0.4);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
   border-radius: var(--border-radius-card);
-  border: 1px solid var(--border-subtle);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
 }
 
 .metrics-container {
@@ -176,14 +203,23 @@
 }
 
 .price-card {
-  background-color: var(--bg-surface-secondary);
-  border: 1px solid var(--border-subtle);
+  background: rgba(27, 34, 48, 0.4);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: var(--border-radius-button);
   padding: var(--spacing-4);
   display: flex;
   flex-direction: column;
   gap: var(--spacing-2);
   text-align: center;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s ease-out, box-shadow 0.2s ease-out;
+}
+
+.price-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(147, 51, 234, 0.15);
 }
 
 .price-label {
@@ -207,8 +243,10 @@
 }
 
 .language-chip {
-  background-color: var(--bg-surface-secondary);
+  background: rgba(27, 34, 48, 0.4);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   color: var(--text-primary);
-  border: 1px solid var(--border-subtle);
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 

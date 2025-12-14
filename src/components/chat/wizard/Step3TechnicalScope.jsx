@@ -46,7 +46,7 @@ function Step3TechnicalScope({ data, onUpdate, onNext, onPrevious }) {
             handleChange("gameDimension", newValue);
           }}
           renderInput={(params) => (
-            <TextField {...params} label="Game Dimension" />
+            <TextField {...params} label="Game Dimension" autoComplete="off" />
           )}
           sx={{ mb: 3 }}
         />
@@ -59,7 +59,7 @@ function Step3TechnicalScope({ data, onUpdate, onNext, onPrevious }) {
             handleChange("gameEngine", newValue);
           }}
           renderInput={(params) => (
-            <TextField {...params} label="Game Engine" />
+            <TextField {...params} label="Game Engine" autoComplete="off" />
           )}
           sx={{ mb: 3 }}
         />

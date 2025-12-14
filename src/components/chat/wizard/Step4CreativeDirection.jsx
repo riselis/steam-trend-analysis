@@ -132,7 +132,7 @@ function Step4CreativeDirection({
             handleChange("visualStyle", newValue);
           }}
           renderInput={(params) => (
-            <TextField {...params} label="Visual Style" />
+            <TextField {...params} label="Visual Style" autoComplete="off" />
           )}
           sx={{ mb: 3 }}
         />
@@ -153,6 +153,7 @@ function Step4CreativeDirection({
               {...params}
               label="Art Heavy Level"
               placeholder="Select level"
+              autoComplete="off"
             />
           )}
           sx={{ mb: 3 }}

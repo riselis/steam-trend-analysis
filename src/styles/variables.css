@@ -14,19 +14,19 @@
   --text-disabled: #4A547A;
 
   /* Brand Colors */
-  --brand-primary: #5B7CFF;
-  --brand-secondary: #7AA2FF;
-  --brand-accent: #9BB4FF;
+  --brand-primary: #9333EA;
+  --brand-secondary: #A855F7;
+  --brand-accent: #C084FC;
 
   /* Status Colors */
   --status-success: #3DD598;
   --status-warning: #FFC542;
   --status-error: #FF6B6B;
-  --status-info: #5B7CFF;
+  --status-info: #9333EA;
 
   /* Data Visualization Colors */
-  --data-viz-normal: #5B7CFF;
-  --data-viz-highlight: #7AA2FF;
+  --data-viz-normal: #9333EA;
+  --data-viz-highlight: #A855F7;
   --data-viz-critical: #FF6B6B;
   --data-viz-inactive: #2A335A;
 

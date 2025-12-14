@@ -5,13 +5,23 @@
 }
 
 .chart-card {
-  background-color: var(--bg-surface-primary);
+  background: rgba(21, 26, 35, 0.4);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
   border-radius: var(--border-radius-card);
-  border: 1px solid var(--border-subtle);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   padding: var(--card-padding);
   display: flex;
   flex-direction: column;
   gap: var(--spacing-4);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  transition: transform 0.2s ease-out, box-shadow 0.2s ease-out;
+}
+
+.chart-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 40px rgba(147, 51, 234, 0.2);
+  border-color: rgba(147, 51, 234, 0.3);
 }
 
 .chart-card h3 {
@@ -24,17 +34,22 @@
 .chart-container {
   height: 300px;
   width: 100%;
-  background-color: var(--bg-surface-secondary);
+  background: rgba(27, 34, 48, 0.3);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   border-radius: var(--border-radius-button);
   padding: var(--spacing-4);
+  border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .custom-tooltip {
-  background-color: var(--bg-surface-elevated);
-  border: 1px solid var(--border-strong);
+  background: rgba(34, 42, 59, 0.8);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
   border-radius: var(--border-radius-button);
   padding: var(--spacing-2) var(--spacing-3);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
 }
 
 .tooltip-label {
@@ -73,9 +88,12 @@
   padding: var(--spacing-6);
   text-align: center;
   color: var(--text-muted);
-  background-color: var(--bg-surface-primary);
+  background: rgba(21, 26, 35, 0.4);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
   border-radius: var(--border-radius-card);
-  border: 1px solid var(--border-subtle);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
 }
 
 .summary-metrics {
@@ -86,9 +104,11 @@
 }
 
 .summary-card {
-  background-color: var(--bg-surface-primary);
+  background: rgba(21, 26, 35, 0.4);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
   border-radius: var(--border-radius-card);
-  border: 1px solid var(--border-subtle);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   padding: var(--spacing-6) var(--spacing-7);
   display: flex;
   flex-direction: column;
@@ -97,20 +117,22 @@
   text-align: center;
   position: relative;
   overflow: hidden;
-  transition: transform 0.2s ease-out, box-shadow 0.2s ease-out;
+  transition: transform 0.2s ease-out, box-shadow 0.2s ease-out, border-color 0.2s ease-out;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
 }
 
 .summary-card:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 12px 40px rgba(147, 51, 234, 0.2);
+  border-color: rgba(147, 51, 234, 0.3);
 }
 
 .summary-card-released {
   border-left: 4px solid var(--brand-primary);
   background: linear-gradient(
     135deg,
-    var(--bg-surface-primary) 0%,
-    rgba(91, 124, 255, 0.05) 100%
+    rgba(21, 26, 35, 0.4) 0%,
+    rgba(147, 51, 234, 0.15) 100%
   );
 }
 
@@ -122,8 +144,8 @@
   border-left: 4px solid var(--status-success);
   background: linear-gradient(
     135deg,
-    var(--bg-surface-primary) 0%,
-    rgba(61, 213, 152, 0.05) 100%
+    rgba(21, 26, 35, 0.4) 0%,
+    rgba(61, 213, 152, 0.15) 100%
   );
 }
 

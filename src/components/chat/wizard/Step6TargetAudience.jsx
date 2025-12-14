@@ -58,6 +58,7 @@ function Step6TargetAudience({ data, onUpdate, onNext, onPrevious }) {
               value={data.targetAgeGroup?.min || ""}
               onChange={(e) => handleAgeGroupChange("min", e.target.value)}
               fullWidth
+              autoComplete="off"
             />
           </Grid>
           <Grid item xs={6}>
@@ -68,6 +69,7 @@ function Step6TargetAudience({ data, onUpdate, onNext, onPrevious }) {
               value={data.targetAgeGroup?.max || ""}
               onChange={(e) => handleAgeGroupChange("max", e.target.value)}
               fullWidth
+              autoComplete="off"
             />
           </Grid>
         </Grid>
@@ -103,6 +105,7 @@ function Step6TargetAudience({ data, onUpdate, onNext, onPrevious }) {
           onChange={(e) => handleChange("targetRegion", e.target.value)}
           placeholder="e.g., North America, Europe, Global"
           fullWidth
+          autoComplete="off"
           sx={{ mb: 3 }}
         />
 
@@ -154,7 +157,10 @@ function Step6TargetAudience({ data, onUpdate, onNext, onPrevious }) {
         </FormGroup>
       </Box>
 
-      <Box className="wizard-actions" sx={{ mt: 4, pt: 3, borderTop: 1, borderColor: 'divider' }}>
+      <Box
+        className="wizard-actions"
+        sx={{ mt: 4, pt: 3, borderTop: 1, borderColor: "divider" }}
+      >
         <Button variant="outlined" onClick={onPrevious}>
           Previous
         </Button>

@@ -9,9 +9,12 @@
   display: flex;
   align-items: center;
   padding: var(--spacing-3) var(--spacing-4);
-  background-color: var(--bg-surface-primary);
-  border-bottom: 1px solid var(--border-subtle);
+  background: rgba(21, 26, 35, 0.4);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   min-height: 56px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }
 
 .chat-page-content {
@@ -54,7 +57,10 @@
   padding: var(--spacing-6);
   text-align: center;
   color: var(--text-muted);
-  background-color: var(--bg-surface-primary);
+  background: rgba(21, 26, 35, 0.4);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
   border-radius: var(--border-radius-card);
-  border: 1px solid var(--border-subtle);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
 }

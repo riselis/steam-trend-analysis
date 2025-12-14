@@ -135,20 +135,41 @@ function SummaryCard({ summary }) {
             <Grid item xs={6}>
               <Box className="revenue-block">
                 <Typography variant="caption" color="text.secondary">
-                  Month 3
+                  Month 6
                 </Typography>
                 <Box sx={{ mt: 0.5 }}>
                   <Typography variant="caption" display="block">
                     Low: $
-                    {summary.revenue_snapshot?.month_3?.low?.toLocaleString()}
+                    {summary.revenue_snapshot?.month_6?.low?.toLocaleString()}
                   </Typography>
                   <Typography variant="caption" display="block">
                     Mid: $
-                    {summary.revenue_snapshot?.month_3?.mid?.toLocaleString()}
+                    {summary.revenue_snapshot?.month_6?.mid?.toLocaleString()}
                   </Typography>
                   <Typography variant="caption" display="block">
                     High: $
-                    {summary.revenue_snapshot?.month_3?.high?.toLocaleString()}
+                    {summary.revenue_snapshot?.month_6?.high?.toLocaleString()}
+                  </Typography>
+                </Box>
+              </Box>
+            </Grid>
+            <Grid item xs={6}>
+              <Box className="revenue-block">
+                <Typography variant="caption" color="text.secondary">
+                  Month 12
+                </Typography>
+                <Box sx={{ mt: 0.5 }}>
+                  <Typography variant="caption" display="block">
+                    Low: $
+                    {summary.revenue_snapshot?.month_12?.low?.toLocaleString()}
+                  </Typography>
+                  <Typography variant="caption" display="block">
+                    Mid: $
+                    {summary.revenue_snapshot?.month_12?.mid?.toLocaleString()}
+                  </Typography>
+                  <Typography variant="caption" display="block">
+                    High: $
+                    {summary.revenue_snapshot?.month_12?.high?.toLocaleString()}
                   </Typography>
                 </Box>
               </Box>

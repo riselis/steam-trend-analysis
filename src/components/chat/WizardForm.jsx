@@ -151,7 +151,7 @@ function WizardForm({ onSubmit, onCancel }) {
   };
 
   return (
-    <div className="wizard-form">
+    <form className="wizard-form" autoComplete="off">
       <div className="wizard-header">
         <h2>Project Analysis Form</h2>
         <div className="wizard-progress">
@@ -167,9 +167,8 @@ function WizardForm({ onSubmit, onCancel }) {
         </div>
       </div>
       <div className="wizard-content">{renderStep()}</div>
-    </div>
+    </form>
   );
 }
 
 export default WizardForm;
-

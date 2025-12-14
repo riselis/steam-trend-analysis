@@ -1,6 +1,6 @@
-import { Outlet } from 'react-router-dom';
-import Sidebar from './Sidebar';
-import './DashboardLayout.css';
+import { Outlet } from "react-router-dom";
+import Sidebar from "./Sidebar";
+import "./DashboardLayout.css";
 
 function DashboardLayout() {
   return (
@@ -14,4 +14,3 @@ function DashboardLayout() {
 }
 
 export default DashboardLayout;
-

@@ -2,21 +2,26 @@
   display: flex;
   flex-direction: column;
   height: 100%;
-  background-color: var(--bg-surface-primary);
+  background: rgba(21, 26, 35, 0.4);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
   overflow: hidden;
 }
 
 .report-panel-header {
   padding: var(--spacing-4);
-  border-bottom: 1px solid var(--border-subtle);
-  background-color: var(--bg-surface-primary);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(21, 26, 35, 0.4);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }
 
 .report-panel-content {
   flex: 1;
   overflow-y: auto;
   padding: var(--spacing-4);
-  background-color: var(--bg-surface-primary);
+  background: transparent;
 }
 
 .report-content {

@@ -98,7 +98,7 @@ function AnalyticsCharts({ data }) {
           borderRadius: 4,
           backgroundColor: "rgba(255, 255, 255, 0.06)",
           "& .MuiLinearProgress-bar": {
-            backgroundColor: "#5B7CFF",
+            backgroundColor: "#9333EA",
           },
         }}
       />
@@ -152,7 +152,7 @@ function AnalyticsCharts({ data }) {
                 {topRevenueData.map((entry, index) => (
                   <Cell
                     key={`cell-${index}`}
-                    fill={entry.isTop3 ? "#3DD598" : "#5B7CFF"}
+                    fill={entry.isTop3 ? "#3DD598" : "#9333EA"}
                   />
                 ))}
               </Bar>
@@ -191,7 +191,7 @@ function AnalyticsCharts({ data }) {
                   <CustomTooltip {...props} isRevenue={false} />
                 )}
               />
-              <Bar dataKey="value" radius={[0, 4, 4, 0]} fill="#7AA2FF" />
+              <Bar dataKey="value" radius={[0, 4, 4, 0]} fill="#A855F7" />
             </BarChart>
           </ResponsiveContainer>
         </div>

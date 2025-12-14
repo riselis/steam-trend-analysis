@@ -83,6 +83,7 @@ function Step1TeamComposition({ data, onUpdate, onNext }) {
           onChange={handleTeamSizeChange}
           placeholder="Enter team size"
           fullWidth
+          autoComplete="off"
           sx={{ mb: 3 }}
         />
 
@@ -104,7 +105,7 @@ function Step1TeamComposition({ data, onUpdate, onNext }) {
                     handleMemberChange(index, "teamRole", newValue || "");
                   }}
                   renderInput={(params) => (
-                    <TextField {...params} label="Role" />
+                    <TextField {...params} label="Role" autoComplete="off" />
                   )}
                   sx={{ mb: 2 }}
                 />
@@ -117,6 +118,7 @@ function Step1TeamComposition({ data, onUpdate, onNext }) {
                     handleMemberChange(index, "experienceYears", e.target.value)
                   }
                   fullWidth
+                  autoComplete="off"
                   sx={{ mb: 2 }}
                 />
                 <TextField
@@ -128,6 +130,7 @@ function Step1TeamComposition({ data, onUpdate, onNext }) {
                     handleMemberChange(index, "hoursByWeek", e.target.value)
                   }
                   fullWidth
+                  autoComplete="off"
                 />
               </Paper>
             ))}
