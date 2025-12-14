@@ -6,6 +6,7 @@ import {
   Typography,
   FormGroup,
 } from "@mui/material";
+import SubmitButton from "./SubmitButton";
 
 const channels = ["Discord", "Twitter", "Steam page"];
 
@@ -47,13 +48,14 @@ function Step8CommunityPresence({ data, onUpdate, onSubmit, onPrevious }) {
         </FormGroup>
       </Box>
 
-      <Box className="wizard-actions" sx={{ mt: 4, pt: 3, borderTop: 1, borderColor: 'divider' }}>
+      <Box
+        className="wizard-actions"
+        sx={{ mt: 4, pt: 3, borderTop: 1, borderColor: "divider" }}
+      >
         <Button variant="outlined" onClick={onPrevious}>
           Previous
         </Button>
-        <Button variant="contained" onClick={onSubmit}>
-          Submit
-        </Button>
+        <SubmitButton onSubmit={onSubmit} formData={data} />
       </Box>
     </Box>
   );

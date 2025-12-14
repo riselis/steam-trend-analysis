@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import SummaryCard from "./SummaryCard";
 import "./ChatMessage.css";
 
 function ChatMessage({ message, loading = false }) {
@@ -15,18 +15,16 @@ function ChatMessage({ message, loading = false }) {
       );
     }
 
-    if (message.responseId) {
-      return (
-        <div>
-          <p className="message-content">{message.content}</p>
-          <Link
-            to={`/analytics/full-report/${message.responseId}`}
-            className="report-link"
-          >
-            View full report
-          </Link>
-        </div>
-      );
+    // Check if message contains structured data
+    if (!isUser && message.content) {
+      try {
+        const parsed = JSON.parse(message.content);
+        if (parsed.summary) {
+          return <SummaryCard summary={parsed.summary} />;
+        }
+      } catch (e) {
+        // Not JSON, render as text
+      }
     }
 
     return <p className="message-content">{message.content}</p>;
@@ -34,7 +32,9 @@ function ChatMessage({ message, loading = false }) {
 
   return (
     <div className={`chat-message ${isUser ? "user" : "bot"}`}>
-      <div className={`message-bubble ${isUser ? "user-bubble" : "bot-bubble"}`}>
+      <div
+        className={`message-bubble ${isUser ? "user-bubble" : "bot-bubble"}`}
+      >
         {renderContent()}
       </div>
     </div>
@@ -42,4 +42,3 @@ function ChatMessage({ message, loading = false }) {
 }
 
 export default ChatMessage;
-

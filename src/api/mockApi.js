@@ -85,19 +85,166 @@ export const submitTrendInput = async (formData) => {
   // Generate a mock responseId
   const responseId = Math.floor(Math.random() * 1000000) + 1000;
 
-  const chatResponse = `Thank you for submitting your project details. Based on your team composition of ${
-    formData.teamSize
-  } members, ${formData.gameDimension} ${
-    formData.gameEngine
-  } project targeting ${
-    formData.playerType
-  } players, I've analyzed your requirements and prepared a comprehensive report. Your project shows strong potential in the ${
-    formData.preferredGenres?.join(", ") || "selected"
-  } genre(s). The analysis is ready for review.`;
+  // Generate mock structured response
+  const summary = {
+    recommended_niche: formData.preferredGenres?.[0] || "Action RPG",
+    core_theme: formData.themePreferences?.[0] || "strategy",
+    game_mode: formData.gameMode || "singleplayer",
+    recommended_release_window: formData.targetReleaseWindow || "Q2 2024",
+    target_audience: {
+      age_range: {
+        min: formData.targetAgeGroup?.min || 18,
+        max: formData.targetAgeGroup?.max || 35,
+      },
+      player_type: formData.playerType || "midcore",
+    },
+    risk_success: {
+      success_probability: 72.5,
+      risk_level: "moderate",
+      ai_summary:
+        "Based on your team composition and project scope, this niche shows strong market potential with moderate competition. Success probability is favorable given your technical capabilities.",
+    },
+    revenue_snapshot: {
+      month_1: {
+        low: 5000,
+        mid: 15000,
+        high: 35000,
+      },
+      month_3: {
+        low: 12000,
+        mid: 45000,
+        high: 95000,
+      },
+    },
+  };
+
+  const top_niches = [
+    {
+      niche_title: formData.preferredGenres?.[0] || "Action RPG",
+      trend_direction: "up",
+      success_probability: 72.5,
+      risk_score: 35,
+      market_saturation: 45,
+      competition_density: 60,
+      team_fit_score: 85,
+      release_timing: {
+        recommended_window: "Q2 2024",
+        best_months: ["April", "May", "June"],
+        worst_months: ["December", "January"],
+        visibility_score: 78,
+      },
+      financial_projections: {
+        month_1: { low: 5000, mid: 15000, high: 35000 },
+        month_6: { low: 25000, mid: 75000, high: 150000 },
+        month_12: { low: 50000, mid: 180000, high: 400000 },
+      },
+      product_direction: {
+        game_mode: formData.gameMode || "singleplayer",
+        core_theme: formData.themePreferences?.[0] || "strategy",
+        recommended_scope: "medium",
+        core_mechanics: ["Combat", "Progression", "Exploration"],
+      },
+      publisher_fit: [
+        {
+          publisher: "Publisher A",
+          match_score: 82,
+          example_games: ["Game X", "Game Y"],
+        },
+        {
+          publisher: "Publisher B",
+          match_score: 75,
+          example_games: ["Game Z"],
+        },
+      ],
+      marketing_plan: {
+        pre_launch:
+          "Build community through Discord and Twitter. Create dev logs and teaser content.",
+        launch:
+          "Steam page optimization, influencer partnerships, press kit distribution.",
+        post_launch:
+          "Regular content updates, community engagement, seasonal events.",
+        primary_channels: ["Steam", "Discord", "Twitter"],
+        community_strategy:
+          "Active moderation, weekly updates, player feedback integration.",
+        risks:
+          "Market saturation in target genre, timing competition with major releases.",
+      },
+      explainability: {
+        top_success_factors: [
+          "Strong team composition",
+          "Clear target audience",
+          "Moderate competition",
+        ],
+        top_risk_factors: [
+          "Market timing",
+          "Competition density",
+          "Scope management",
+        ],
+        model_confidence: 78.5,
+      },
+    },
+    {
+      niche_title: formData.preferredGenres?.[1] || "Strategy",
+      trend_direction: "stable",
+      success_probability: 65.0,
+      risk_score: 42,
+      market_saturation: 55,
+      competition_density: 70,
+      team_fit_score: 72,
+      release_timing: {
+        recommended_window: "Q3 2024",
+        best_months: ["July", "August"],
+        worst_months: ["November", "December"],
+        visibility_score: 65,
+      },
+      financial_projections: {
+        month_1: { low: 4000, mid: 12000, high: 28000 },
+        month_6: { low: 20000, mid: 60000, high: 120000 },
+        month_12: { low: 40000, mid: 150000, high: 350000 },
+      },
+      product_direction: {
+        game_mode: formData.gameMode || "singleplayer",
+        core_theme: "strategy",
+        recommended_scope: "medium",
+        core_mechanics: ["Planning", "Resource Management", "Tactical Combat"],
+      },
+      publisher_fit: [
+        {
+          publisher: "Publisher C",
+          match_score: 70,
+          example_games: ["Game A"],
+        },
+      ],
+      marketing_plan: {
+        pre_launch:
+          "Strategy-focused content, tutorial videos, community building.",
+        launch: "Steam featured placement, strategy gaming sites coverage.",
+        post_launch: "DLC content, balance updates, competitive features.",
+        primary_channels: ["Steam", "YouTube", "Reddit"],
+        community_strategy:
+          "Strategy guides, balance discussions, tournament organization.",
+        risks: "Higher competition, need for deep gameplay systems.",
+      },
+      explainability: {
+        top_success_factors: [
+          "Niche appeal",
+          "Team expertise",
+          "Market demand",
+        ],
+        top_risk_factors: ["Complexity", "Learning curve", "Competition"],
+        model_confidence: 72.0,
+      },
+    },
+  ];
+
+  const chatResponse = {
+    summary,
+    top_niches,
+  };
 
   return {
     success: true,
-    chatResponse,
+    chatResponse: JSON.stringify(chatResponse),
     responseId,
   };
 };
@@ -106,27 +253,152 @@ export const submitTrendInput = async (formData) => {
 export const getFullReport = async (responseId) => {
   await delay(1000);
 
+  // Return structured response (same as initial submit)
+  // In real app, this would fetch from server
+  // For now, generate mock data similar to submitTrendInput
+  const summary = {
+    recommended_niche: "Action RPG",
+    core_theme: "strategy",
+    game_mode: "singleplayer",
+    recommended_release_window: "Q2 2024",
+    target_audience: {
+      age_range: { min: 18, max: 35 },
+      player_type: "midcore",
+    },
+    risk_success: {
+      success_probability: 72.5,
+      risk_level: "moderate",
+      ai_summary:
+        "Based on your team composition and project scope, this niche shows strong market potential with moderate competition.",
+    },
+    revenue_snapshot: {
+      month_1: { low: 5000, mid: 15000, high: 35000 },
+      month_3: { low: 12000, mid: 45000, high: 95000 },
+    },
+  };
+
+  const top_niches = [
+    {
+      niche_title: "Action RPG",
+      trend_direction: "up",
+      success_probability: 72.5,
+      risk_score: 35,
+      market_saturation: 45,
+      competition_density: 60,
+      team_fit_score: 85,
+      release_timing: {
+        recommended_window: "Q2 2024",
+        best_months: ["April", "May", "June"],
+        worst_months: ["December", "January"],
+        visibility_score: 78,
+      },
+      financial_projections: {
+        month_1: { low: 5000, mid: 15000, high: 35000 },
+        month_6: { low: 25000, mid: 75000, high: 150000 },
+        month_12: { low: 50000, mid: 180000, high: 400000 },
+      },
+      product_direction: {
+        game_mode: "singleplayer",
+        core_theme: "strategy",
+        recommended_scope: "medium",
+        core_mechanics: ["Combat", "Progression", "Exploration"],
+      },
+      publisher_fit: [
+        {
+          publisher: "Publisher A",
+          match_score: 82,
+          example_games: ["Game X", "Game Y"],
+        },
+        {
+          publisher: "Publisher B",
+          match_score: 75,
+          example_games: ["Game Z"],
+        },
+      ],
+      marketing_plan: {
+        pre_launch:
+          "Build community through Discord and Twitter. Create dev logs and teaser content.",
+        launch:
+          "Steam page optimization, influencer partnerships, press kit distribution.",
+        post_launch:
+          "Regular content updates, community engagement, seasonal events.",
+        primary_channels: ["Steam", "Discord", "Twitter"],
+        community_strategy:
+          "Active moderation, weekly updates, player feedback integration.",
+        risks:
+          "Market saturation in target genre, timing competition with major releases.",
+      },
+      explainability: {
+        top_success_factors: [
+          "Strong team composition",
+          "Clear target audience",
+          "Moderate competition",
+        ],
+        top_risk_factors: [
+          "Market timing",
+          "Competition density",
+          "Scope management",
+        ],
+        model_confidence: 78.5,
+      },
+    },
+    {
+      niche_title: "Strategy",
+      trend_direction: "stable",
+      success_probability: 65.0,
+      risk_score: 42,
+      market_saturation: 55,
+      competition_density: 70,
+      team_fit_score: 72,
+      release_timing: {
+        recommended_window: "Q3 2024",
+        best_months: ["July", "August"],
+        worst_months: ["November", "December"],
+        visibility_score: 65,
+      },
+      financial_projections: {
+        month_1: { low: 4000, mid: 12000, high: 28000 },
+        month_6: { low: 20000, mid: 60000, high: 120000 },
+        month_12: { low: 40000, mid: 150000, high: 350000 },
+      },
+      product_direction: {
+        game_mode: "singleplayer",
+        core_theme: "strategy",
+        recommended_scope: "medium",
+        core_mechanics: ["Planning", "Resource Management", "Tactical Combat"],
+      },
+      publisher_fit: [
+        {
+          publisher: "Publisher C",
+          match_score: 70,
+          example_games: ["Game A"],
+        },
+      ],
+      marketing_plan: {
+        pre_launch:
+          "Strategy-focused content, tutorial videos, community building.",
+        launch: "Steam featured placement, strategy gaming sites coverage.",
+        post_launch: "DLC content, balance updates, competitive features.",
+        primary_channels: ["Steam", "YouTube", "Reddit"],
+        community_strategy:
+          "Strategy guides, balance discussions, tournament organization.",
+        risks: "Higher competition, need for deep gameplay systems.",
+      },
+      explainability: {
+        top_success_factors: [
+          "Niche appeal",
+          "Team expertise",
+          "Market demand",
+        ],
+        top_risk_factors: ["Complexity", "Learning curve", "Competition"],
+        model_confidence: 72.0,
+      },
+    },
+  ];
+
   return {
     success: true,
-    content: `# Full Analysis Report #${responseId}
-
-## Executive Summary
-This comprehensive analysis has been generated based on your project submission. The report includes detailed insights into market trends, competitive analysis, and recommendations tailored to your specific project requirements.
-
-## Market Analysis
-Based on current Steam trends and your project specifications, we've identified key market opportunities and potential challenges in your target genre and platform focus.
-
-## Recommendations
-1. Consider focusing on your primary objective while maintaining flexibility for pivots
-2. Leverage your team's previous experience in released genres
-3. Plan for community engagement through selected channels
-4. Monitor development timeline against target release window
-
-## Risk Assessment
-Your pivot readiness and release delay readiness scores have been factored into this analysis. Consider these factors when making critical project decisions.
-
-## Next Steps
-Review this report and use the action plan to guide your development process.`,
+    content: JSON.stringify({ summary, top_niches }),
   };
 };
 
@@ -210,6 +482,116 @@ export const fetchTrendData = async (filters) => {
     data: {
       playerCount: generateDataPoints(30, 50000, 10000),
       engagement: generateDataPoints(30, 75, 15),
+    },
+  };
+};
+
+// Genres Trend Data API
+export const fetchGenresTrendData = async (params) => {
+  await delay(1000);
+
+  const { startdate, enddate, profitabilityType, minNumberForProfitability } =
+    params;
+
+  // Parse dates
+  const startDate = new Date(startdate);
+  const endDate = new Date(enddate);
+  const daysDiff = Math.ceil((endDate - startDate) / (1000 * 60 * 60 * 24));
+  const dataPointCount = Math.max(1, daysDiff);
+
+  // Generate date range
+  const generateDateRange = () => {
+    const dates = [];
+    for (let i = 0; i <= dataPointCount; i++) {
+      const date = new Date(startDate);
+      date.setDate(date.getDate() + i);
+      dates.push(date.toISOString().split("T")[0]);
+    }
+    return dates;
+  };
+
+  const dates = generateDateRange();
+
+  // Generate released_games data (base value varies by profitability type)
+  const getBaseReleased = () => {
+    switch (profitabilityType) {
+      case "wishlists":
+        return 150;
+      case "revenue":
+        return 120;
+      case "reviews":
+        return 100;
+      default:
+        return 130;
+    }
+  };
+
+  // Generate profitable_games data (typically 30-50% of released)
+  const getBaseProfitable = () => {
+    switch (profitabilityType) {
+      case "wishlists":
+        return 60;
+      case "revenue":
+        return 45;
+      case "reviews":
+        return 40;
+      default:
+        return 50;
+    }
+  };
+
+  const baseReleased = getBaseReleased();
+  const baseProfitable = getBaseProfitable();
+
+  const released_games = dates.map((date, index) => ({
+    date,
+    y: Math.max(
+      0,
+      Math.floor(
+        baseReleased + (Math.random() - 0.5) * 40 + Math.sin(index * 0.1) * 10
+      )
+    ),
+  }));
+
+  const profitable_games = dates.map((date, index) => ({
+    date,
+    y: Math.max(
+      0,
+      Math.floor(
+        baseProfitable + (Math.random() - 0.5) * 20 + Math.sin(index * 0.1) * 5
+      )
+    ),
+  }));
+
+  // Calculate profitability_ratio (profitable / released * 100)
+  const profitability_ratio = dates.map((date, index) => {
+    const released = released_games[index].y;
+    const profitable = profitable_games[index].y;
+    const ratio = released > 0 ? (profitable / released) * 100 : 0;
+    return {
+      date,
+      y: Math.round(ratio * 10) / 10, // Round to 1 decimal
+    };
+  });
+
+  // Calculate totals
+  const totalNumberOfReleasedGames = released_games.reduce(
+    (sum, item) => sum + item.y,
+    0
+  );
+  const totalNumberOfProfitableGames = profitable_games.reduce(
+    (sum, item) => sum + item.y,
+    0
+  );
+
+  return {
+    success: true,
+    data: {
+      released_games,
+      profitable_games,
+      profitability_ratio,
+      totalNumberOfReleasedGames,
+      totalNumberOfProfitableGames,
     },
   };
 };

@@ -44,3 +44,24 @@
   border-color: var(--border-strong);
 }
 
+.filter-input {
+  padding: var(--spacing-3) var(--spacing-4);
+  background-color: var(--bg-surface-secondary);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--border-radius-button);
+  color: var(--text-primary);
+  font-size: var(--font-size-body);
+  cursor: pointer;
+  transition: border-color 0.2s ease-out;
+  font-family: inherit;
+}
+
+.filter-input:focus {
+  border-color: var(--brand-primary);
+  outline: none;
+}
+
+.filter-input:hover {
+  border-color: var(--border-strong);
+}
+

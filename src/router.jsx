@@ -2,6 +2,7 @@ import { createBrowserRouter, Navigate } from "react-router-dom";
 import LoginPage from "./pages/LoginPage";
 import RegisterPage from "./pages/RegisterPage";
 import ChatbotPage from "./pages/ChatbotPage";
+import ChatPage from "./pages/chats/ChatPage";
 import TrendAnalysisPage from "./pages/TrendAnalysisPage";
 import DataAnalyticsPage from "./pages/DataAnalyticsPage";
 import FullReportPage from "./pages/FullReportPage";
@@ -51,6 +52,10 @@ export const router = createBrowserRouter([
       {
         path: "chatbot",
         element: <ChatbotPage />,
+      },
+      {
+        path: "chats/:id",
+        element: <ChatPage />,
       },
       {
         path: "trend-analysis",

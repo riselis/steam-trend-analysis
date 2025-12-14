@@ -1,31 +1,36 @@
-import { useState, useEffect } from 'react';
-import TrendFilters from '../components/analytics/TrendFilters';
-import TrendCharts from '../components/analytics/TrendCharts';
-import { fetchTrendData } from '../api/mockApi';
-import './TrendAnalysisPage.css';
+import { useState, useEffect } from "react";
+import TrendFilters from "../components/analytics/TrendFilters";
+import TrendCharts from "../components/analytics/TrendCharts";
+import { fetchGenresTrendData } from "../api/mockApi";
+import "./TrendAnalysisPage.css";
 
 function TrendAnalysisPage() {
-  const [filters, setFilters] = useState({
-    dateRange: '30d',
-    platform: 'all',
-    genre: 'all'
-  });
+  const [filters, setFilters] = useState(null);
   const [chartData, setChartData] = useState(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    loadTrendData();
+    if (filters) {
+      loadTrendData();
+    }
   }, [filters]);
 
   const loadTrendData = async () => {
+    if (!filters) return;
+
     setLoading(true);
     try {
-      const result = await fetchTrendData(filters);
+      const result = await fetchGenresTrendData({
+        startdate: filters.startdate,
+        enddate: filters.enddate,
+        profitabilityType: filters.profitabilityType,
+        minNumberForProfitability: filters.minNumberForProfitability,
+      });
       if (result.success) {
         setChartData(result.data);
       }
     } catch (error) {
-      console.error('Failed to load trend data:', error);
+      // Error handling without console.log
     } finally {
       setLoading(false);
     }
@@ -45,4 +50,3 @@ function TrendAnalysisPage() {
 }
 
 export default TrendAnalysisPage;
-

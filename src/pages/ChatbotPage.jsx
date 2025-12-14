@@ -1,55 +1,41 @@
 import { useState, useEffect } from "react";
-import { useNavigate, useLocation } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import WizardForm from "../components/chat/WizardForm";
-import ChatLayout from "../components/chat/ChatLayout";
+import ChatList from "../components/chat/ChatList";
 import { submitTrendInput } from "../api/mockApi";
+import { chatStore } from "../store/chatStore";
 import "./ChatbotPage.css";
 
 function ChatbotPage() {
-  const location = useLocation();
   const navigate = useNavigate();
   const [showWizard, setShowWizard] = useState(true);
-  const [messages, setMessages] = useState([]);
-  const [loading, setLoading] = useState(false);
-  const [responseId, setResponseId] = useState(null);
-  const [formData, setFormData] = useState(null);
 
-  // Check if we're coming from wizard submit
-  useEffect(() => {
-    if (location.state?.formData) {
-      setShowWizard(false);
-      setFormData(location.state.formData);
-      loadChatResponse(location.state.formData);
-    }
-  }, [location]);
-
-  const loadChatResponse = async (data) => {
-    setLoading(true);
+  const handleWizardSubmit = async (formData) => {
     try {
-      const result = await submitTrendInput(data);
+      const result = await submitTrendInput(formData);
       if (result.success) {
-        setResponseId(result.responseId);
+        // Create chat entry
         const botMessage = {
           type: "bot",
           content: result.chatResponse,
           responseId: result.responseId,
         };
-        setMessages([botMessage]);
+        chatStore.createChat(result.responseId, botMessage);
+
+        // Navigate to chat page
+        navigate(`/chats/${result.responseId}`);
       }
     } catch (error) {
-      const errorMessage = {
-        type: "bot",
-        content: "Sorry, an error occurred. Please try again.",
-      };
-      setMessages([errorMessage]);
-    } finally {
-      setLoading(false);
+      console.error("Failed to submit form:", error);
     }
   };
 
-  const handleWizardSubmit = (formData) => {
-    // Immediately navigate to chat view
-    navigate("/chatbot", { state: { formData }, replace: true });
+  const handleNewChat = () => {
+    setShowWizard(true);
+  };
+
+  const handleChatSelect = (chatId) => {
+    navigate(`/chats/${chatId}`);
   };
 
   return (
@@ -57,14 +43,7 @@ function ChatbotPage() {
       {showWizard ? (
         <WizardForm onSubmit={handleWizardSubmit} />
       ) : (
-        <div className="chatbot-results">
-          <ChatLayout
-            messages={messages}
-            onSendMessage={null}
-            loading={loading}
-            showInput={false}
-          />
-        </div>
+        <ChatList onNewChat={handleNewChat} onChatSelect={handleChatSelect} />
       )}
     </div>
   );

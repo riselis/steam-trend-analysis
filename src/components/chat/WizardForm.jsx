@@ -67,8 +67,8 @@ function WizardForm({ onSubmit, onCancel }) {
     }
   };
 
-  const handleSubmit = () => {
-    onSubmit(formData);
+  const handleSubmit = async () => {
+    await onSubmit(formData);
   };
 
   const renderStep = () => {

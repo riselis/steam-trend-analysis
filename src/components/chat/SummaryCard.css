@@ -1,0 +1,14 @@
+.summary-card {
+  background-color: var(--bg-surface-secondary);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--border-radius-card);
+  margin-bottom: var(--spacing-4);
+}
+
+.revenue-block {
+  background-color: var(--bg-surface-primary);
+  padding: var(--spacing-2);
+  border-radius: var(--border-radius-button);
+  border: 1px solid var(--border-subtle);
+}
+
