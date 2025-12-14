@@ -1,7 +1,7 @@
-import { useRef, useEffect } from 'react';
-import ChatMessage from './ChatMessage';
-import ChatInput from './ChatInput';
-import './ChatLayout.css';
+import { useRef, useEffect } from "react";
+import ChatMessage from "./ChatMessage";
+import ChatInput from "./ChatInput";
+import "./ChatLayout.css";
 
 function ChatLayout({ messages, onSendMessage, loading, showInput = true }) {
   const messagesEndRef = useRef(null);
@@ -30,15 +30,15 @@ function ChatLayout({ messages, onSendMessage, loading, showInput = true }) {
           </div>
         ) : (
           <>
+            {messages.map((message, index) => (
+              <ChatMessage key={index} message={message} />
+            ))}
             {loading && (
               <ChatMessage
                 message={{ type: "bot", content: "Thinking..." }}
                 loading
               />
             )}
-            {messages.map((message, index) => (
-              <ChatMessage key={index} message={message} />
-            ))}
             <div ref={messagesEndRef} />
           </>
         )}
@@ -51,4 +51,3 @@ function ChatLayout({ messages, onSendMessage, loading, showInput = true }) {
 }
 
 export default ChatLayout;
-

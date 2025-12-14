@@ -1,0 +1,21 @@
+.deep-data-filters {
+  background-color: var(--bg-surface-primary);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--border-radius-card);
+  padding: var(--card-padding);
+}
+
+.filters-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--spacing-4);
+}
+
+.filter-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.filter-autocomplete {
+  width: 100%;
+}

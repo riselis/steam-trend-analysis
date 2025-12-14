@@ -62,7 +62,7 @@ export const register = async (email, password, name) => {
 
 // Chat API
 export const fetchChatResponse = async (message) => {
-  await delay(1200);
+  await delay(3200);
 
   const responses = [
     "Based on the current Steam trends, I can help you analyze player engagement patterns.",
@@ -625,6 +625,81 @@ export const fetchAnalyticsData = async () => {
         { name: "Game D", players: 28000, growth: 15.3 },
         { name: "Game E", players: 25000, growth: 5.1 },
       ],
+    },
+  };
+};
+
+// Deep Data Analytics API
+export const fetchDeepDataAnalytics = async (params) => {
+  await delay(1000);
+
+  const {
+    tags = [],
+    wishlistMin = 0,
+    wishlistMax = 1000000,
+    revenueMin = 0,
+    revenueMax = 10000000,
+    reviewsMin = 0,
+    reviewsMax = 100000,
+    startdate,
+    enddate,
+  } = params;
+
+  // Generate mock top revenue games
+  const topRevenueGames = [
+    { name: "Cyberpunk 2077", value: 8500000 },
+    { name: "Elden Ring", value: 7200000 },
+    { name: "Baldur's Gate 3", value: 6800000 },
+    { name: "The Witcher 3", value: 5500000 },
+    { name: "Red Dead Redemption 2", value: 4800000 },
+    { name: "Hogwarts Legacy", value: 4200000 },
+    { name: "Starfield", value: 3800000 },
+    { name: "God of War", value: 3500000 },
+  ].slice(0, 8);
+
+  // Generate mock top wishlisted games
+  const topWishlistedGames = [
+    { name: "Hollow Knight: Silksong", value: 285000 },
+    { name: "The Elder Scrolls VI", value: 245000 },
+    { name: "Half-Life 3", value: 198000 },
+    { name: "GTA VI", value: 175000 },
+    { name: "Star Citizen", value: 152000 },
+    { name: "Titanfall 3", value: 128000 },
+    { name: "Portal 3", value: 115000 },
+    { name: "Left 4 Dead 3", value: 98000 },
+  ].slice(0, 8);
+
+  // Generate mock language support
+  const topSupportedLanguages = [
+    "English",
+    "Simplified Chinese",
+    "Russian",
+    "German",
+    "French",
+    "Spanish",
+    "Japanese",
+    "Korean",
+    "Portuguese",
+    "Italian",
+  ];
+
+  return {
+    success: true,
+    data: {
+      topRevenueGames,
+      topWishlistedGames: topWishlistedGames,
+      topSupportedLanguages,
+      percentThatWentWithPublishers: 42.5,
+      linuxSupportPercentage: 68.3,
+      macSupportPercentage: 54.7,
+      medianPrice: 19.99,
+      averagePrice: 24.87,
+      partialControllerSupportPercentage: 78.2,
+      fullControllerSupportPercentage: 65.4,
+      coopSupportPercentage: 45.8,
+      multiplayerSupportPercentage: 52.3,
+      steamLeaderboardSupportPercentage: 38.9,
+      steamAchievementsSupportPercentage: 89.2,
     },
   };
 };
