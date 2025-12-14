@@ -4,7 +4,7 @@ import "./TrendFilters.css";
 function TrendFilters({ onFilterChange }) {
   const getDefaultStartDate = () => {
     const date = new Date();
-    date.setDate(date.getDate() - 30);
+    date.setDate(date.getDate() - 730);
     return date.toISOString().split("T")[0];
   };
 

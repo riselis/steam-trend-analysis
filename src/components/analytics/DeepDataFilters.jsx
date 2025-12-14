@@ -15,7 +15,7 @@ function DeepDataFilters({ onFilterChange }) {
 
   const getDefaultStartDate = () => {
     const date = new Date();
-    date.setMonth(date.getMonth() - 6);
+    date.setMonth(date.getMonth() - 24);
     return date.toISOString().split("T")[0];
   };
 
